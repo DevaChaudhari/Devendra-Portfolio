@@ -49,19 +49,22 @@
     padding: 44px 32px;
     position: sticky; top:0; height: 100vh; overflow-y: auto;
     display: flex; flex-direction: column;
+    text-align: center;
   }
   @media (max-width: 900px){ .sidebar{ position: static; height: auto; border-right:none; border-bottom:1px solid var(--line-soft); } }
 
   .avatar-wrap{
-    width: 132px; height: 132px;
-    border-radius: 18px;
+    width: 148px; height: 176px;
+    border-radius: 20px;
     padding: 3px;
     background: linear-gradient(135deg, var(--cyan), var(--violet));
-    margin-bottom: 22px;
+    margin: 0 auto 22px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
   }
   .avatar-wrap img{
     width: 100%; height: 100%; object-fit: cover;
-    border-radius: 15px;
+    object-position: center 15%;
+    border-radius: 17px;
     display: block;
     background: var(--bg-elev-2);
   }
@@ -83,7 +86,7 @@
     font-family: var(--font-mono);
     font-size: 11.5px;
     color: var(--green);
-    display: flex; align-items: center; gap: 7px;
+    display: flex; align-items: center; justify-content: center; gap: 7px;
     margin-bottom: 24px;
   }
   .sb-status .dot{ width:7px;height:7px;border-radius:50%; background: var(--green); box-shadow: 0 0 8px var(--green); }
@@ -92,7 +95,7 @@
     font-family: var(--font-mono);
     font-size: 13px;
     padding: 11px 18px;
-    border-radius: 6px;
+    border-radius: 999px;
     border: 1px solid var(--line);
     display: inline-flex; align-items:center; justify-content:center; gap:8px;
     transition: border-color .2s ease, transform .15s ease, background .2s ease;
@@ -102,15 +105,17 @@
   .btn-primary{
     background: linear-gradient(120deg, rgba(110,231,249,0.16), rgba(177,140,255,0.16));
     border-color: rgba(110,231,249,0.4);
-    margin-bottom: 22px;
+    margin: 0 auto 22px;
+    width: auto;
+    padding: 11px 32px;
   }
   .btn-primary:hover{ border-color: var(--cyan); }
 
   .sb-links{
-    display:flex; gap:10px; margin-bottom: 26px;
+    display:flex; gap:10px; margin: 0 auto 26px; justify-content: center;
   }
   .sb-links a{
-    width: 38px; height: 38px; border-radius: 8px;
+    width: 38px; height: 38px; border-radius: 50%;
     border: 1px solid var(--line);
     display:flex; align-items:center; justify-content:center;
     color: var(--text-muted);
@@ -123,6 +128,7 @@
     border-top: 1px solid var(--line-soft);
     padding-top: 18px;
     margin-top: 4px;
+    text-align: left;
   }
   .sb-block + .sb-block{ margin-top: 18px; }
   .sb-label{
@@ -137,7 +143,7 @@
   .sb-value a:hover{ color: var(--cyan); }
   .sb-value + .sb-value{ margin-top: 4px; }
 
-  .sidebar-footer{ margin-top: auto; padding-top: 30px; font-family: var(--font-mono); font-size: 10.5px; color: var(--text-faint); }
+  .sidebar-footer{ margin-top: auto; padding-top: 30px; font-family: var(--font-mono); font-size: 10.5px; color: var(--text-faint); text-align: left; }
 
   /* ============ MAIN ============ */
   .main{ padding: 44px 48px 80px; max-width: 880px; }
@@ -244,9 +250,9 @@
     <div class="avatar-wrap"><img src="photo.jpg" alt="Devendra Chaudhari"></div>
     <h1 class="sb-name">Devendra Chaudhari</h1>
     <p class="sb-role">AI/ML Engineer — Agentic AI &amp; RAG Systems</p>
-    <div class="sb-status"><span class="dot"></span>Open to remote &amp; part-time roles</div>
+    <div class="sb-status"><span class="dot"></span>Open to new opportunities</div>
 
-    <a class="btn btn-primary" href="DevendraChaudhari-Resume.pdf" download>↓ Download résumé</a>
+    <a class="btn btn-primary" href="DevendraChaudhari-Resume.pdf" download>Resume</a>
 
     <div class="sb-links">
       <a href="https://github.com/DevaChaudhari" target="_blank" rel="noopener" aria-label="GitHub">
@@ -263,10 +269,6 @@
     <div class="sb-block">
       <div class="sb-label">Email</div>
       <div class="sb-value"><a href="mailto:devachaudhari22@gmail.com">devachaudhari22@gmail.com</a></div>
-    </div>
-    <div class="sb-block">
-      <div class="sb-label">Phone</div>
-      <div class="sb-value"><a href="tel:+61481783399">+61 481 783 399</a></div>
     </div>
     <div class="sb-block">
       <div class="sb-label">Location</div>
@@ -289,9 +291,9 @@
     <nav class="tabs" id="tabs">
       <button class="tab-btn active" data-tab="about">About</button>
       <button class="tab-btn" data-tab="experience">Experience</button>
+      <button class="tab-btn" data-tab="education">Education</button>
       <button class="tab-btn" data-tab="projects">Projects</button>
       <button class="tab-btn" data-tab="skills">Skills</button>
-      <button class="tab-btn" data-tab="education">Education</button>
       <button class="tab-btn" data-tab="research">Research</button>
       <button class="tab-btn" data-tab="contact">Contact</button>
     </nav>
@@ -301,7 +303,7 @@
       <h2 class="panel-title">About Me</h2>
       <p class="lead">I'm an <strong>AI/ML Engineer</strong> with 2+ years building and shipping generative AI, agentic AI, and RAG systems to production — not just prototyping them in a notebook.</p>
       <p class="lead">My hands-on work centres on <strong>LangChain</strong>, <strong>LangGraph</strong>, the <strong>Model Context Protocol (MCP)</strong>, and <strong>Agent-to-Agent (A2A)</strong> communication, paired with <strong>FastAPI</strong>, <strong>Docker</strong>, <strong>Kubernetes</strong>, and <strong>Google Cloud Run</strong> for deployment. I currently freelance as an AI Engineer, building RAG chatbots, autonomous multi-agent systems, and automation platforms for clients, after a stint as an Associate Engineer at L&amp;T Technology Services working on Azure cloud applications and data infrastructure.</p>
-      <p class="lead">I'm also a published researcher — a book chapter on real-time traffic surveillance with deep learning, and a conference presentation on computer vision and intelligent automation. I'm currently completing a Master of Data Science at Flinders University in Adelaide, and I'm open to remote and part-time AI/ML roles.</p>
+      <p class="lead">I'm also a published researcher — a book chapter on real-time traffic surveillance with deep learning, and a conference presentation on computer vision and intelligent automation. I'm currently completing a Master of Data Science at Flinders University in Adelaide, and I'm open to full-time, part-time, remote, or freelance AI/ML roles.</p>
     </section>
 
     <!-- EXPERIENCE -->
@@ -339,60 +341,6 @@
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section class="panel" id="projects">
-      <h2 class="panel-title">Projects</h2>
-
-      <div class="card">
-        <div class="card-head"><span class="card-title">AustraliaJobSeeker AI</span></div>
-        <p class="lead" style="margin-bottom:0;">SEEK.com has no visa filter for international students. This full production agent system scrapes live SEEK listings and filters by visa type in real time.</p>
-        <div class="proj-tags"><span>LangGraph</span><span>LangSmith</span><span>Groq LLM</span><span>MCP</span><span>A2A</span><span>Cloud Run</span><span>Kubernetes</span></div>
-        <ul>
-          <li>Multi-agent pipeline covers scraping, enrichment, visa eligibility checks, resume-match ranking, and AI-generated resumes/cover letters end to end.</li>
-          <li>Custom MCP servers expose job search, visa checks, and resume tailoring as callable tools; A2A servers enable multi-agent collaboration.</li>
-          <li>Deployed on Cloud Run with Docker, Kubernetes manifests, and a Cloud Build CI/CD pipeline on every push.</li>
-        </ul>
-        <div class="proj-links"><a href="https://github.com/DevaChaudhari" target="_blank" rel="noopener">Live app ↗</a><a href="https://github.com/DevaChaudhari" target="_blank" rel="noopener">GitHub ↗</a></div>
-      </div>
-
-      <div class="card">
-        <div class="card-head"><span class="card-title">ProjectPilot-AI</span></div>
-        <p class="lead" style="margin-bottom:0;">An autonomous multi-agent platform with dedicated planner, executor, and tool-selection agents for dynamic task planning and automation.</p>
-        <div class="proj-tags"><span>LangGraph</span><span>LangChain</span><span>FastAPI</span><span>Streamlit</span><span>Ollama</span></div>
-        <ul>
-          <li>Modular orchestration framework improved end-to-end task efficiency by <strong>~40%</strong> across 5+ tool agents.</li>
-          <li>Integrated 6+ external APIs — GitHub, REST services, file systems, browsing tools.</li>
-          <li>Runs on local Ollama inference, eliminating cloud LLM costs with comparable response quality.</li>
-        </ul>
-        <div class="proj-links"><a href="https://github.com/DevaChaudhari" target="_blank" rel="noopener">Live app ↗</a><a href="https://github.com/DevaChaudhari" target="_blank" rel="noopener">GitHub ↗</a></div>
-      </div>
-
-      <div class="card">
-        <div class="card-head"><span class="card-title">YouTube RAG Chatbot</span></div>
-        <p class="lead" style="margin-bottom:0;">Query any YouTube video's content in natural language via a 4-stage RAG pipeline.</p>
-        <div class="proj-tags"><span>LangChain</span><span>Gemini</span><span>FAISS</span><span>Docker</span><span>Kubernetes</span></div>
-        <ul>
-          <li>Metadata extraction → transcript loading → FAISS indexing → context-aware generation, sub-second retrieval latency.</li>
-          <li>Semantic search across 100K+ token transcripts at <strong>&lt;500ms</strong> query time.</li>
-          <li>Dockerized with Kubernetes manifests for production-ready deployment.</li>
-        </ul>
-        <div class="proj-links"><a href="https://github.com/DevaChaudhari" target="_blank" rel="noopener">Live app ↗</a><a href="https://github.com/DevaChaudhari" target="_blank" rel="noopener">GitHub ↗</a></div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="panel" id="skills">
-      <h2 class="panel-title">Skills</h2>
-      <div class="skill-grid">
-        <div class="skill-card"><h3>Agentic AI &amp; Orchestration</h3><p>LangGraph, LangChain, LangSmith, MCP Servers, A2A Agents, AI Agent Orchestration, Prompt Engineering</p></div>
-        <div class="skill-card"><h3>LLM &amp; RAG</h3><p>RAG Pipelines, Embeddings, Vector Search, Fine-Tuning, FAISS, Pinecone, ChromaDB, Hugging Face Transformers</p></div>
-        <div class="skill-card"><h3>ML / DL Core</h3><p>TensorFlow, PyTorch, Scikit-learn, Computer Vision, NLP, Feature Engineering, Hyperparameter Tuning, Model Evaluation</p></div>
-        <div class="skill-card"><h3>Cloud &amp; DevOps</h3><p>Microsoft Azure, Azure AI Foundry, Azure DevOps, Google Cloud Run, Docker, Kubernetes, CI/CD Pipelines</p></div>
-        <div class="skill-card"><h3>Backend &amp; Data</h3><p>Python, SQL, FastAPI, Flask, Pandas, NumPy, OpenCV, SQL Server, MySQL, Microservices Architecture</p></div>
-        <div class="skill-card"><h3>Tooling</h3><p>GitHub, GitLab, VS Code, PyCharm, Jupyter Notebook, REST APIs, Model Deployment</p></div>
-      </div>
-    </section>
-
     <!-- EDUCATION -->
     <section class="panel" id="education">
       <h2 class="panel-title">Education &amp; Certifications</h2>
@@ -407,7 +355,67 @@
           <div class="item"><div class="t">Azure AI Engineer Associate (AI-102)</div><div class="s">Microsoft — Aug 2025</div></div>
           <div class="item"><div class="t">Azure AI Fundamentals (AI-900)</div><div class="s">Microsoft — Aug 2025</div></div>
           <div class="item"><div class="t">Machine Learning with Python</div><div class="s">E-Cell IIT Hyderabad — Mar 2023</div></div>
+          <div class="item"><div class="t">Problem Solving and Ideation Workshop</div><div class="s">Entrepreneurship Development Startup &amp; Innovation Cell — Nov 2021</div></div>
         </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="panel" id="projects">
+      <h2 class="panel-title">Projects</h2>
+
+      <div class="card">
+        <div class="card-head"><span class="card-title">AustraliaJobSeeker AI</span></div>
+        <div class="card-sub">End-to-End AI Agent Job Platform · May 2026 – Jun 2026</div>
+        <p class="lead" style="margin-bottom:0;">SEEK.com has no visa filter for international students, so hours get wasted applying to citizen-only jobs. This full production agent system scrapes live SEEK listings and filters by visa type (500, 485, 482, PR) in real time.</p>
+        <div class="proj-tags"><span>Python</span><span>LangGraph</span><span>LangSmith</span><span>Groq LLM</span><span>FastAPI</span><span>MCP</span><span>A2A</span><span>Docker</span><span>Kubernetes</span><span>Cloud Run</span><span>CI/CD</span></div>
+        <ul>
+          <li>Architected a LangGraph multi-agent pipeline covering job scraping, enrichment, visa eligibility checks, resume-match ranking, and AI-generated resumes/cover letters end to end.</li>
+          <li>Built custom MCP servers exposing job search, visa checks, resume tailoring, and cover letter generation as callable tools, plus A2A servers enabling true multi-agent collaboration and skill discovery.</li>
+          <li>Integrated LangSmith for real-time agent observability, giving full visibility into every agent decision, LLM call, and pipeline execution in production.</li>
+          <li>Deployed on Google Cloud Run with Docker, Kubernetes manifests for production-grade orchestration, and a Cloud Build CI/CD pipeline triggered on every push.</li>
+        </ul>
+        <div class="proj-links"><a href="https://github.com/DevaChaudhari" target="_blank" rel="noopener">Live app ↗</a><a href="https://github.com/DevaChaudhari" target="_blank" rel="noopener">GitHub ↗</a></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="card-title">ProjectPilot-AI</span></div>
+        <div class="card-sub">Autonomous Multi-Agent System · Mar 2026</div>
+        <p class="lead" style="margin-bottom:0;">A production-grade autonomous multi-agent platform with dedicated planner, executor, and tool-selection agents for dynamic task planning, multi-step LLM reasoning, and real-world automation.</p>
+        <div class="proj-tags"><span>Python</span><span>LangGraph</span><span>LangChain</span><span>FastAPI</span><span>Streamlit</span><span>Ollama</span><span>REST APIs</span></div>
+        <ul>
+          <li>Engineered a modular AI agent orchestration framework with dedicated planner, executor, and tool-selection agents, improving end-to-end task efficiency by <strong>~40%</strong> across 5+ tool agents.</li>
+          <li>Integrated 6+ external APIs and services — GitHub API, REST APIs, file management systems, and web browsing tools — for fully automated workflow execution.</li>
+          <li>Ran cost-efficient local LLM inference via Ollama, eliminating cloud API costs while maintaining response quality comparable to hosted LLM providers.</li>
+          <li>Built scalable REST backend services with FastAPI and a real-time Streamlit frontend supporting concurrent agent execution and live task monitoring.</li>
+        </ul>
+        <div class="proj-links"><a href="https://github.com/DevaChaudhari" target="_blank" rel="noopener">Live app ↗</a><a href="https://github.com/DevaChaudhari" target="_blank" rel="noopener">GitHub ↗</a></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span class="card-title">YouTube RAG Chatbot</span></div>
+        <div class="card-sub">Jan 2026</div>
+        <p class="lead" style="margin-bottom:0;">An end-to-end RAG chatbot that lets users query any YouTube video's content in natural language, using LangChain and Google Gemini.</p>
+        <div class="proj-tags"><span>Python</span><span>LangChain</span><span>Gemini AI</span><span>FAISS</span><span>Streamlit</span><span>Docker</span><span>Kubernetes</span></div>
+        <ul>
+          <li>Designed a 4-stage RAG pipeline — video metadata extraction, transcript loading, FAISS vector indexing, and context-aware answer generation — achieving sub-second retrieval latency.</li>
+          <li>Generated high-dimensional transcript embeddings with Google Gemini and indexed them in FAISS, enabling semantic search across 100K+ token transcripts at <strong>&lt;500ms</strong> query time.</li>
+          <li>Dockerized the application and authored Kubernetes deployment and service manifests for cloud-native, production-ready deployment.</li>
+        </ul>
+        <div class="proj-links"><a href="https://github.com/DevaChaudhari" target="_blank" rel="noopener">Live app ↗</a><a href="https://github.com/DevaChaudhari" target="_blank" rel="noopener">GitHub ↗</a></div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="panel" id="skills">
+      <h2 class="panel-title">Skills</h2>
+      <div class="skill-grid">
+        <div class="skill-card"><h3>Agentic AI &amp; Orchestration</h3><p>LangGraph, LangChain, LangSmith, MCP Servers, A2A Agents, AI Agent Orchestration, Prompt Engineering</p></div>
+        <div class="skill-card"><h3>LLM &amp; RAG</h3><p>RAG Pipelines, Embeddings, Vector Search, Fine-Tuning, FAISS, Pinecone, ChromaDB, Hugging Face Transformers</p></div>
+        <div class="skill-card"><h3>ML / DL Core</h3><p>Machine Learning, Deep Learning, TensorFlow, PyTorch, Scikit-learn, Computer Vision, NLP, Transfer Learning, Feature Engineering, Hyperparameter Tuning, Model Evaluation</p></div>
+        <div class="skill-card"><h3>Cloud &amp; DevOps</h3><p>Microsoft Azure, Azure AI Foundry, Azure DevOps, Google Cloud Run, Docker, Kubernetes, CI/CD Pipelines, MLOps</p></div>
+        <div class="skill-card"><h3>Backend &amp; Data</h3><p>Python, SQL, FastAPI, Flask, Pandas, NumPy, OpenCV, SQL Server, MySQL, Microservices Architecture</p></div>
+        <div class="skill-card"><h3>Tooling</h3><p>GitHub, GitLab, VS Code, PyCharm, Jupyter Notebook, REST APIs, Model Deployment</p></div>
       </div>
     </section>
 
@@ -416,7 +424,7 @@
       <h2 class="panel-title">Research &amp; Publications</h2>
       <div class="pub-item">
         <div class="pub-title">A Real-Time Vehicle Counting System for Detecting Traffic Surveillance</div>
-        <div class="pub-meta">Book chapter — Advancing Engineering and Technology through Interdisciplinary Approaches, Cambridge Scholars Publishing, 2026</div>
+        <div class="pub-meta">Book chapter — Advancing Engineering and Technology through Interdisciplinary Approaches: A Pragmatic Approach, Cambridge Scholars Publishing, 2026</div>
         <p class="pub-desc">Real-time deep learning-based vehicle detection, classification, and congestion analysis using YOLOv3, OpenCV, and Python for scalable smart traffic management.</p>
       </div>
       <div class="pub-item">
@@ -430,10 +438,9 @@
     <section class="panel" id="contact">
       <h2 class="panel-title">Contact</h2>
       <div class="contact-box">
-        <p>Open to remote and part-time AI/ML roles in Adelaide, and freelance work on agentic AI and RAG systems. Reach out any time.</p>
+        <p>Open to full-time, part-time, remote, or freelance AI/ML roles. Reach out any time.</p>
         <div class="contact-grid">
           <a class="btn btn-primary" style="margin-bottom:0;" href="mailto:devachaudhari22@gmail.com">devachaudhari22@gmail.com</a>
-          <a class="btn" href="tel:+61481783399">+61 481 783 399</a>
           <a class="btn" href="https://www.linkedin.com/in/devendra-chaudhari-40a79321a/" target="_blank" rel="noopener">LinkedIn ↗</a>
           <a class="btn" href="https://github.com/DevaChaudhari" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
